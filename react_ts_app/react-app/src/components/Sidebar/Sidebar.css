@@ -1,0 +1,21 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #162447;
+    padding: 20px;
+}
+
+.profile-info {
+    text-align: center;
+}
+
+.profile-info h2 {
+    margin-bottom: 10px;
+}
+
+.profile-info p {
+    margin-bottom: 5px;
+}
