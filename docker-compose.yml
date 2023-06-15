@@ -1,0 +1,23 @@
+version: '3'
+services:
+  frontend:
+    privileged: true
+    tty: true
+    stdin_open: true
+    build:
+      context: ./react_ts_app
+      dockerfile: Dockerfile.dev
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./react_ts_app:/usr/src/app
+    networks:
+      - app_net_dev
+    ports:
+      - "3000:3000"
+    container_name: react-app
+    command: /bin/sh
+
+networks:
+  app_net_dev:
+    driver: bridge
