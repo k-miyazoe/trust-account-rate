@@ -1,4 +1,24 @@
 import React from 'react';
-// 他の必要なインポートステートメントも追加するかもしれません
+import './Sidebar.css';
 
-// ここから実際のコードを記述します
+interface SidebarProps {
+    profile: {
+        name: string;
+        walletaddress: string;
+        bio: string;
+    };
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ profile }) => {
+    return (
+        <div className="sidebar">
+            <div className="profile-info">
+                <h2>{profile.name}</h2>
+                <p>{profile.walletaddress}</p>
+                <p>{profile.bio}</p>
+            </div>
+        </div>
+    );
+};
+
+export default Sidebar;
