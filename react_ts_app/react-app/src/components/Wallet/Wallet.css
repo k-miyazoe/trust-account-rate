@@ -1,8 +1,8 @@
-.sidebar {
+.wallet {
     position: fixed;
     top: 0;
     right: 0;
-    width: 200px;
+    width: 300px;
     height: 100vh;
     background-color: #162447;
     padding: 20px;
