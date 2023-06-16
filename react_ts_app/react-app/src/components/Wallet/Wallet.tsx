@@ -1,24 +1,22 @@
 import React from 'react';
-import './Sidebar.css';
+import './Wallet.css';
 
-interface SidebarProps {
+interface WalletProps {
     profile: {
         name: string;
         walletaddress: string;
-        bio: string;
     };
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ profile }) => {
+const Wallet: React.FC<WalletProps> = ({ profile }) => {
     return (
-        <div className="sidebar">
+        <div className="wallet">
             <div className="profile-info">
                 <h2>{profile.name}</h2>
                 <p>{profile.walletaddress}</p>
-                <p>{profile.bio}</p>
             </div>
         </div>
     );
 };
 
-export default Sidebar;
+export default Wallet;
