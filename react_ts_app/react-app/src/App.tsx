@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
-import Todo from "./components/Todo/Todo";
 import Wallet from "./components/Wallet/Wallet";
+import Header from "./components/Header/Header";
+import Post from "./components/Post/Post";
+
 
 function App() {
   const profile = {
@@ -10,10 +12,10 @@ function App() {
   };
   return (
     <div className="App">
+      <Header />
       <header className="App-header">
-        <h2>Todo List</h2>
-        <Todo />
         <Wallet profile={profile} />
+        <Post title="First Post" content="This is my first post" />
       </header>
     </div>
   );
