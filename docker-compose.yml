@@ -7,6 +7,8 @@ services:
     build:
       context: ./react_ts_app
       dockerfile: Dockerfile.dev
+    image: tar-dev-front
+    container_name: tar-dev-front
     environment:
       - NODE_ENV=development
     volumes:
@@ -15,8 +17,22 @@ services:
       - app_net_dev
     ports:
       - "3000:3000"
-    container_name: react-app
     command: /bin/sh
+  backend:
+    tty: true
+    stdin_open: true
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+    image: tar-dev-api
+    container_name: tar-dev-api
+    platform: linux/x86_64
+    environment:
+      - TZ=Asia/Tokyo
+    volumes:
+      - ./api/app:/app/
+    networks:
+      - app_net_dev
 
 networks:
   app_net_dev:
