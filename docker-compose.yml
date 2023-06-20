@@ -33,7 +33,30 @@ services:
       - ./api/app:/app/
     networks:
       - app_net_dev
-
+    ports:
+      - "8000:8000"
+  db:
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    image: tar-dev-db
+    container_name: tar-dev-db
+    platform: linux/x86_64
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 1s
+      retries: 10
+      start_period: 3s
+      timeout: 20s
+    volumes:
+      - ./mysql/db:/var/lib/mysql
+    expose:
+      - 3306
+    env_file:
+      - ./mysql/db.env
+    networks:
+      - app_net_dev
+    
 networks:
   app_net_dev:
     driver: bridge
